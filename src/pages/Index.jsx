@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, VStack, Input, Button, Box, Text, Heading, useToast, HStack } from "@chakra-ui/react";
-import { FaRobot } from "react-icons/fa";
+import { FaRobot, FaHistory } from "react-icons/fa";
 
 const Index = () => {
   const [messages, setMessages] = useState([]);
@@ -53,8 +53,11 @@ const Index = () => {
         </Box>
         <HStack w="100%">
           <Input placeholder="Type your message here..." value={input} onChange={(e) => setInput(e.target.value)} onKeyPress={(e) => e.key === "Enter" && handleSendMessage()} />
-          <Button colorScheme="blue" onClick={handleSendMessage}>
+          <Button colorScheme="blue" onClick={handleSendMessage} mr={2}>
             Send
+          </Button>
+          <Button colorScheme="teal" onClick={() => toast({ title: "History feature coming soon!" })}>
+            <FaHistory />
           </Button>
         </HStack>
       </VStack>
